@@ -1,6 +1,6 @@
 # Vapor module template (💧)
 
-Swift template for Vapor 4 projects.
+Swift template for Vapor 4 projects using the [ViperKit](https://github.com/binarybirds/viper-kit) library.
 
 ## Dependencies
 

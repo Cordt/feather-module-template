@@ -7,14 +7,13 @@
 
 import Vapor
 import Fluent
+import ViperKit
 
-final class {module}Module: Module {
+final class {module}Module: ViperModule {
 
     static var name: String = "example"
 
-    var routes: RouteCollection? {
-        {module}Router()
-    }
+    var router: ViperRouter? { {module}Router() }
 
     var migrations: [Migration] {
         [

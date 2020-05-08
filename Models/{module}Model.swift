@@ -7,10 +7,12 @@
 
 import Vapor
 import Fluent
+import ViperKit
 
-final class {module}Model: Model {
+final class {module}Model: ViperModel {
+    typealias Module = {module}Module
 
-    static let schema = "example"
+    static let name = "examples"
 
     struct FieldKeys {
         static var example: FieldKey { "example" }

@@ -20,9 +20,9 @@ struct {module}Migration_v1_0_0: Migration {
         ])
     }
 
-    func revert(on database: Database) -> EventLoopFuture<Void> {
-        database.eventLoop.flatten([
-            database.schema({module}Model.schema).delete(),
+    func revert(on db: Database) -> EventLoopFuture<Void> {
+        db.eventLoop.flatten([
+            db.schema({module}Model.schema).delete(),
         ])
     }
 }
