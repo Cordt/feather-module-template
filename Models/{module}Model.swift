@@ -25,8 +25,10 @@ final class {module}Model: ViperModel {
 
     init() { }
 
-    init(id: {module}Model.IDValue? = nil,
-         example: String)
+    init(
+        id: {module}Model.IDValue? = nil,
+         example: String
+    )
     {
         self.id = id
         self.example = example
