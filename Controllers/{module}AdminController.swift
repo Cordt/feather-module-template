@@ -5,7 +5,6 @@
 //  Created by {author} on {date}.
 //
 
-import Fluent
 import FeatherCore
 
 struct {module}AdminController: ViperAdminViewController {

@@ -5,8 +5,7 @@
 //  Created by {author} on {date}.
 //
 
-import Vapor
-import ViperKit
+import FeatherCore
 
 @_cdecl("create{module}Module")
 public func create{module}Module() -> UnsafeMutableRawPointer {

@@ -5,10 +5,9 @@
 //  Created by {author} on {date}.
 //
 
-import Vapor
-import Fluent
+import FeatherCore
 
-final class {module}FrontendController {
+struct {module}FrontendController {
 
     func exampleView(req: Request) throws -> EventLoopFuture<View> {
         struct Context: Encodable {

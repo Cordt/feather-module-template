@@ -9,7 +9,7 @@ import FeatherCore
 
 final class {module}EditForm: ModelForm {
 
-    typealias Model = {module}CategoryModel
+    typealias Model = {module}Model
 
     var modelId: UUID?
     var title = FormField<String>(key: "title").required().length(max: 250)

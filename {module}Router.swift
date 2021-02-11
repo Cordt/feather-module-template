@@ -8,12 +8,17 @@
 import Vapor
 import ViperKit
 
-final class {module}Router: ViperRouter {
+struct {module}Router: ViperRouter {
 
-    let controller = {module}FrontendController()
+    let admin = {module}AdminController()
 
-    func boot(routes: RoutesBuilder, app: Application) throws {
+ 	func adminRoutesHook(args: HookArguments) {
+        let routes = args["routes"] as! RoutesBuilder
 
-        routes.get("example", use: self.controller.exampleView)
+        let modulePath = routes.grouped({module}Module.pathComponent)
+
+        admin.setupRoutes(on: modulePath, as: {module}Model.pathComponent)
     }
 }
+
+
