@@ -1,7 +1,0 @@
-#extend("Frontend/Index"):
-    #export("body"):
-        #(foo)
-    #endexport
-#endextend
-
-

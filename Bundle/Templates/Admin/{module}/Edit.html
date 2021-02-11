@@ -1,0 +1,28 @@
+#let(form = [
+    "id": formId,
+    "token": formToken,
+    "title": "Example",
+    "key": "{module}.examples",
+    "modelId": modelId,
+    "multipart": true,
+    "list": [
+        "title": "Examples",
+        "url": "/admin/{module}/examples/"
+    ],
+    "nav": []
+])
+
+#if(metadata != nil):
+    #(form.nav.append(["label": "Metadata", "link": "/admin/frontend/metadatas/" + metadata.id + "/update/"]))
+#endif
+
+
+#define(fields):
+    #var(field = nil)
+
+    #(field = ["id": "title", "required": true, "data": fields.title])
+    #inline("Admin/Fields/Text")
+
+#enddefine
+
+#inline("Admin/Form")
