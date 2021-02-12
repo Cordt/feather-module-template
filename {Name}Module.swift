@@ -11,11 +11,11 @@ final class {Name}Module: ViperModule {
 
     static var name: String = "{name}"
 
-    var router: ViperRouter? { {name}Router() }
+    var router: ViperRouter? { {Name}Router() }
 
     var migrations: [Migration] {
         [
-            {name}Migration_v1_0_0(),
+            {Name}Migration_v1_0_0(),
         ]
     }
 
@@ -41,7 +41,7 @@ final class {Name}Module: ViperModule {
         app.hooks.register("frontend-page-install", use: frontendPageInstallHook)
 
         /// routes
-        app.hooks.register("admin", use: (router as! {name}Router).adminRoutesHook)
+        app.hooks.register("admin", use: (router as! {Name}Router).adminRoutesHook)
 
         /// leaf
         app.hooks.register("leaf-admin-menu", use: leafAdminMenuHook)
@@ -78,7 +78,7 @@ final class {Name}Module: ViperModule {
         return {Name}Model
             .queryJoinPublicMetadata(on: req.db)
             .all()
-            .flatMap { {Name}FrontendView(req).{name}({name}: $0, metadata: metadata) }
+            .flatMap { {Name}FrontendView(req).{name}($0, metadata: metadata) }
             .encodeOptionalResponse(for: req)
     }
 
@@ -92,7 +92,7 @@ final class {Name}Module: ViperModule {
                 guard let {name} = {name} else {
                     return req.eventLoop.future(nil)
                 }
-                return {Name}FrontendView(req).{name}({name}.leafData).encodeOptionalResponse(for: req)
+                return {Name}FrontendView(req).{name}({name}).encodeOptionalResponse(for: req)
             }
     }
 

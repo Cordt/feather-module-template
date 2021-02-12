@@ -22,15 +22,15 @@ struct {Name}FrontendView {
         return req.leaf.render(template: template, context: context)
     }
 
-    func example({name}: [{Name}Model], metadata: Metadata) -> EventLoopFuture<View> {
+    func {name}(_ {name}: [{Name}Model], metadata: Metadata) -> EventLoopFuture<View> {
         render("{name}", [
                 "metadata": metadata.leafData,
                 "{name}": .array({name}.map { $0.leafDataWithJoinedMetadata }),
         ])
     }
 
-    func {name}(_ {name}: LeafData) -> EventLoopFuture<View> {
-        render("{name}", ["{name}": {name}])
+    func {name}(_ {name}: {Name}Model) -> EventLoopFuture<View> {
+        render("{name}", ["{name}": {name}.leafData])
     }
 
 }
