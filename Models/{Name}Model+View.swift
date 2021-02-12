@@ -1,5 +1,5 @@
 //
-//  {module}Model.swift
+//  {name}Model.swift
 //  {project}
 //
 //  Created by {author} on {date}.
@@ -7,7 +7,7 @@
 
 import FeatherCore
 
-extension {module}Model: LeafDataRepresentable {
+extension {name}Model: LeafDataRepresentable {
 
     var leafData: LeafData {
         .dictionary([

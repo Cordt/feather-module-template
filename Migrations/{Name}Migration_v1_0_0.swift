@@ -1,5 +1,5 @@
 //
-//  {module}Migration_v1_0_0.swift
+//  {name}Migration_v1_0_0.swift
 //  {project}
 //
 //  Created by {author} on {date}.
@@ -8,17 +8,17 @@
 import FeatherCore
 import Fluent
 
-struct {module}Migration_v1_0_0: Migration {
+struct {name}Migration_v1_0_0: Migration {
 
     func prepare(on db: Database) -> EventLoopFuture<Void> {
-        db.schema({module}Model.schema)
+        db.schema({name}Model.schema)
             .id()
-            .field({module}Model.FieldKeys.title, .string, .required)
+            .field({name}Model.FieldKeys.title, .string, .required)
             .create()
         
     }
 
     func revert(on db: Database) -> EventLoopFuture<Void> {
-        db.schema({module}Model.schema).delete()
+        db.schema({name}Model.schema).delete()
     }
 }

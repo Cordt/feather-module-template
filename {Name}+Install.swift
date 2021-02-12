@@ -1,5 +1,5 @@
 //
-//  {module}Builder.swift
+//  {name}Builder.swift
 //  {project}
 //
 //  Created by {author} on {date}.
@@ -7,7 +7,7 @@
 
 import FeatherCore
 
-extension {module}Module {
+extension {name}Module {
     
     func modelInstallHook(args: HookArguments) -> EventLoopFuture<Void> {
         let req = args["req"] as! Request
@@ -20,9 +20,9 @@ extension {module}Module {
     func systemVariablesInstallHook(args: HookArguments) -> [[String: Any]] {
         [
             [
-                "key": "{module}.example.page.title",
-                "name": "{module} example page title",
-                "value": "{module} page title",
+                "key": "{name}.example.page.title",
+                "name": "{name} example page title",
+                "value": "{name} page title",
                 "note": "Title of the example page",
             ],
         ]
@@ -31,7 +31,7 @@ extension {module}Module {
     func frontendMainMenuInstallHook(args: HookArguments) -> [[String:Any]] {
         [
             [
-                "label": "{module}",
+                "label": "{name}",
                 "url": "/example/",
                 "priority": 900,
             ],
@@ -41,14 +41,14 @@ extension {module}Module {
     func frontendPageInstallHook(args: HookArguments) -> [[String:Any]] {
         [
             [
-                "title": "{module}",
+                "title": "{name}",
                 "content": "[example-page]",
             ],
         ]
     }
 
     func userPermissionInstallHook(args: HookArguments) -> [[String: Any]] {
-        {module}Module.permissions +
-        {module}Model.permissions
+        {name}Module.permissions +
+        {name}Model.permissions
     }
 }

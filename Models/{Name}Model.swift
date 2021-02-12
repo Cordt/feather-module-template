@@ -1,5 +1,5 @@
 //
-//  {module}Model.swift
+//  {name}Model.swift
 //  {project}
 //
 //  Created by {author} on {date}.
@@ -7,8 +7,8 @@
 
 import FeatherCore
 
-final class {module}Model: ViperModel {
-    typealias Module = {module}Module
+final class {name}Model: ViperModel {
+    typealias Module = {name}Module
 
     static let name = "examples"
 

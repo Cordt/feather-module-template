@@ -1,5 +1,5 @@
 //
-//  {module}Module.swift
+//  {name}Module.swift
 //  {project}
 //
 //  Created by {author} on {date}.
@@ -7,25 +7,31 @@
 
 import FeatherCore
 
-final class {module}Module: ViperModule {
+final class {name}Module: ViperModule {
 
-    static var name: String = "{module}"
+    static var name: String = "{name}"
 
-    var router: ViperRouter? { {module}Router() }
+    var router: ViperRouter? { {name}Router() }
 
     var migrations: [Migration] {
         [
-            {module}Migration_v1_0_0(),
+            {name}Migration_v1_0_0(),
         ]
     }
 
     static var bundleUrl: URL? {
-        Bundle.module.resourceURL?.appendingPathComponent("Bundle")
+        // Bundle.module.resourceURL?.appendingPathComponent("Bundle")
+        URL(fileURLWithPath: Application.Paths.base)
+            .appendingPathComponent("Sources")
+            .appendingPathComponent("Feather")
+            .appendingPathComponent("Modules")
+            .appendingPathComponent("News")
+            .appendingPathComponent("Bundle")
     }
 
   	func boot(_ app: Application) throws {
         /// frontend middleware
-        app.databases.middleware.use(MetadataModelMiddleware<{module}Model>())
+        app.databases.middleware.use(MetadataModelMiddleware<{name}Model>())
         
         /// install
         app.hooks.register("model-install", use: modelInstallHook)
@@ -35,7 +41,7 @@ final class {module}Module: ViperModule {
         app.hooks.register("frontend-page-install", use: frontendPageInstallHook)
 
         /// routes
-        app.hooks.register("admin", use: (router as! {module}Router).adminRoutesHook)
+        app.hooks.register("admin", use: (router as! {name}Router).adminRoutesHook)
         
         /// leaf
         app.hooks.register("leaf-admin-menu", use: leafAdminMenuHook)
@@ -49,14 +55,14 @@ final class {module}Module: ViperModule {
 
      func leafAdminMenuHook(args: HookArguments) -> LeafDataRepresentable {
         [
-            "name": "{module}",
+            "name": "{name}",
             "icon": "feather",
-            "permission": "{module}.module.access",
+            "permission": "{name}.module.access",
             "items": LeafData.array([
                 [
-                    "url": "/admin/{module}/examples/",
+                    "url": "/admin/{name}/examples/",
                     "label": "Examples",
-                    "permission": "{module}.examples.list",
+                    "permission": "{name}.examples.list",
                 ],
             ])
         ]
@@ -68,7 +74,7 @@ final class {module}Module: ViperModule {
         let req = args["req"] as! Request
         let metadata = args["page-metadata"] as! Metadata
         
-        return {module}Model
+        return {name}Model
             .home(on: req)
             .flatMap { BlogFrontendView(req).home(posts: $0, metadata: metadata) }
             .encodeOptionalResponse(for: req)
@@ -78,7 +84,7 @@ final class {module}Module: ViperModule {
     func exampleFrontendPageHook(args: HookArguments) -> EventLoopFuture<Response?> {
         let req = args["req"] as! Request
 
-        return {module}Model.queryJoinPublicMetadata(path: req.url.path, on: req.db)
+        return {name}Model.queryJoinPublicMetadata(path: req.url.path, on: req.db)
             .first()
             .flatMap { example  in
                 guard let example = example else {
