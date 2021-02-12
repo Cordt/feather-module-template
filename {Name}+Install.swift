@@ -31,7 +31,7 @@ extension {Name}Module {
     func frontendMainMenuInstallHook(args: HookArguments) -> [[String:Any]] {
         [
             [
-                "label": "{name}",
+                "label": "{Name}",
                 "url": "/{name}/",
                 "priority": 900,
             ],

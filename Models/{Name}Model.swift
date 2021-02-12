@@ -10,7 +10,7 @@ import FeatherCore
 final class {Name}Model: ViperModel {
     typealias Module = {Name}Module
 
-    static let name = "{name}s"
+    static let name = "{names}"
 
     struct FieldKeys {
         static var title: FieldKey { "title" }
