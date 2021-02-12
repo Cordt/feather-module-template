@@ -1,0 +1,17 @@
+#define(body):
+
+<div class="container">
+    <div class="margin">
+        <h1>{Name} list</h1>
+
+        <ul class="margin-left">
+            #for(item in {name}):
+            <li><a href="/#(item.metadata.slug)">#(item.title)</a></li>
+            #endfor
+        </ul>
+    </div>
+</div>
+
+#enddefine
+
+#inline("Frontend/Index")

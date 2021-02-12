@@ -1,0 +1,13 @@
+#let(detail = [
+    "title": "{name}",
+    "key": "{name}.{names}",
+    "list": [
+        "title": "{Names}",
+        "url": "/admin/{name}/{names}/"
+    ],
+    fields: [
+        ["label": "Id", "value": model.id],
+    ]
+])
+
+#inline("Admin/Detail")
