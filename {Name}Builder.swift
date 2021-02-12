@@ -1,5 +1,5 @@
 //
-//  {name}Builder.swift
+//  {Name}Builder.swift
 //  {project}
 //
 //  Created by {author} on {date}.
@@ -7,14 +7,14 @@
 
 import FeatherCore
 
-@_cdecl("create{name}Module")
-public func create{name}Module() -> UnsafeMutableRawPointer {
-    return Unmanaged.passRetained({name}Builder()).toOpaque()
+@_cdecl("create{Name}Module")
+public func create{Name}Module() -> UnsafeMutableRawPointer {
+    return Unmanaged.passRetained({Name}Builder()).toOpaque()
 }
 
-final class {name}Builder: ViperBuilder {
+final class {Name}Builder: ViperBuilder {
 
     override func build() -> ViperModule {
-        {name}Module()
+        {Name}Module()
     }
 }

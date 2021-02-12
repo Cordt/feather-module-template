@@ -1,5 +1,5 @@
 //
-//  {name}Builder.swift
+//  {Name}Builder.swift
 //  {project}
 //
 //  Created by {author} on {date}.
@@ -7,8 +7,8 @@
 
 import FeatherCore
 
-extension {name}Module {
-    
+extension {Name}Module {
+
     func modelInstallHook(args: HookArguments) -> EventLoopFuture<Void> {
         let req = args["req"] as! Request
 
@@ -20,10 +20,10 @@ extension {name}Module {
     func systemVariablesInstallHook(args: HookArguments) -> [[String: Any]] {
         [
             [
-                "key": "{name}.example.page.title",
-                "name": "{name} example page title",
+                "key": "{name}.{name}.page.title",
+                "name": "{name} {name} page title",
                 "value": "{name} page title",
-                "note": "Title of the example page",
+                "note": "Title of the {name} page",
             ],
         ]
     }
@@ -32,23 +32,23 @@ extension {name}Module {
         [
             [
                 "label": "{name}",
-                "url": "/example/",
+                "url": "/{name}/",
                 "priority": 900,
             ],
         ]
     }
-    
+
     func frontendPageInstallHook(args: HookArguments) -> [[String:Any]] {
         [
             [
                 "title": "{name}",
-                "content": "[example-page]",
+                "content": "[{name}-page]",
             ],
         ]
     }
 
     func userPermissionInstallHook(args: HookArguments) -> [[String: Any]] {
-        {name}Module.permissions +
-        {name}Model.permissions
+        {Name}Module.permissions +
+        {Name}Model.permissions
     }
 }

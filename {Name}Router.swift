@@ -1,24 +1,21 @@
 //
-//  {name}Router.swift
+//  {Name}Router.swift
 //  {project}
 //
 //  Created by {author} on {date}.
 //
 
-import Vapor
-import ViperKit
+import FeatherCore
 
-struct {name}Router: ViperRouter {
+struct {Name}Router: ViperRouter {
 
-    let admin = {name}AdminController()
+    let admin = {Name}AdminController()
 
- 	func adminRoutesHook(args: HookArguments) {
+    func adminRoutesHook(args: HookArguments) {
         let routes = args["routes"] as! RoutesBuilder
 
-        let modulePath = routes.grouped({name}Module.pathComponent)
+        let modulePath = routes.grouped({Name}Module.pathComponent)
 
-        admin.setupRoutes(on: modulePath, as: {name}Model.pathComponent)
+        admin.setupRoutes(on: modulePath, as: {Name}Model.pathComponent)
     }
 }
-
-

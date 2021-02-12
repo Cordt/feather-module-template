@@ -1,5 +1,5 @@
 //
-//  {name}AdminController.swift
+//  {Name}AdminController.swift
 //  {project}
 //
 //  Created by {author} on {date}.
@@ -7,12 +7,12 @@
 
 import FeatherCore
 
-struct {name}AdminController: ViperAdminViewController {
+struct {Name}AdminController: ViperAdminViewController {
 
-    typealias Module = {name}Module
-    typealias Model = {name}Model
-    typealias CreateForm = {name}EditForm
-    typealias UpdateForm = {name}EditForm
+    typealias Module = {Name}Module
+    typealias Model = {Name}Model
+    typealias CreateForm = {Name}EditForm
+    typealias UpdateForm = {Name}EditForm
 
 
 }

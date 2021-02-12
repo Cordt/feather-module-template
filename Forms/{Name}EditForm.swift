@@ -1,5 +1,5 @@
 //
-//  {name}Builder.swift
+//  {Name}Builder.swift
 //  {project}
 //
 //  Created by {author} on {date}.
@@ -7,16 +7,16 @@
 
 import FeatherCore
 
-final class {name}EditForm: ModelForm {
+final class {Name}EditForm: ModelForm {
 
-    typealias Model = {name}Model
+    typealias Model = {Name}Model
 
     var modelId: UUID?
     var title = FormField<String>(key: "title").required().length(max: 250)
     var notification: String?
 
     var metadata: Metadata?
-    
+
     var fields: [FormFieldRepresentable] {
         [title]
     }
